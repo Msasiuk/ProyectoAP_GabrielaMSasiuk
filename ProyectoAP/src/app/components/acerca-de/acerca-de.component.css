@@ -1,0 +1,36 @@
+img {
+    border-radius: 100%;
+    margin-top: -50%;
+    /*box-shadow : eje x, eje y, difuminado*/
+    box-shadow: 5px 5px 50px black;
+    width: 100%;
+}
+
+@media (max-width: 576px) {
+    #fotoFrente {
+        /*TODO averiguar achicar imagen*/
+        width: auto !important;
+    }
+}
+
+#nombre {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+h2,
+#nombre,
+#titulo {
+    text-align: center;
+}
+
+
+div {
+    overflow: visible;
+}
+
+.div {
+    text-align: justify;
+    margin-top: auto;
+    margin-bottom: auto;
+}
