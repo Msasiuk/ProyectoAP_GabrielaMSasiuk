@@ -1,0 +1,27 @@
+@media (max-width: 465px) {
+    .redes {
+        width: 50px;
+    }
+}
+
+@media (min-width: 466px) {
+    .redes {
+        width: 70px;
+    }
+}
+
+@media (min-width: 601px) {
+    .redes {
+        width: 90px;
+    }
+}
+
+.logoAP {
+    max-height: 250px;
+}
+
+.btn {
+    border-width: medium;
+    border-color: rgb(151, 151, 151);
+    color: rgb(151, 151, 151)
+}
