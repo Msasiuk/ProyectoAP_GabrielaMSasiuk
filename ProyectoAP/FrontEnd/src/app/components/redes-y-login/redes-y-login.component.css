@@ -1,27 +1,47 @@
 @media (max-width: 465px) {
-    .redes {
-        width: 50px;
+    .logoAP {
+        max-width: 100%;
+    }
+
+    /* TODO hamburguesa boton */
+    .logoRedes {
+        width: 30px;
     }
 }
 
 @media (min-width: 466px) {
-    .redes {
-        width: 70px;
+    .logoAP {
+        max-width: 100%;
+    }
+
+    .logoRedes {
+        width: 50px;
     }
 }
 
 @media (min-width: 601px) {
-    .redes {
-        width: 90px;
+    .logoAP {
+        max-width: 100%;
+    }
+
+    .logoRedes {
+        width: 70px;
     }
 }
 
-.logoAP {
-    max-height: 250px;
+@media (min-width: 896px) {
+    .logoAP {
+        width: 359px;
+    }
 }
+
+.divRedes {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
 
 .btn {
     border-width: medium;
-    border-color: rgb(151, 151, 151);
-    color: rgb(151, 151, 151)
 }

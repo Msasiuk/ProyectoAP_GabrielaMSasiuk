@@ -1,3 +1,17 @@
 div {
-    background-color: #f1ccf1;
+    /* COLORES NARANJAS: 
+    FUERTE #FF7F50
+    DEBIL #E6A577
+    
+    AZULES: 
+    FUERTE #0a7686
+    DEBIL #66B9BF
+
+    BLANCO #F0F8FF
+
+    COLORES*/
+
+    background-color: #66B9BF;
+    color: #0a7686;
+    padding: 0%;
 }

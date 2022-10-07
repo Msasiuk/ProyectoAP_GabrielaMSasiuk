@@ -32,7 +32,19 @@ import { FooterComponent } from './components/footer/footer.component';
     BrowserModule,
     AppRoutingModule, 
     FormsModule,
-    NgCircleProgressModule.forRoot({})
+    NgCircleProgressModule.forRoot({
+      maxPercent: 100,
+      radius: 100,
+      outerStrokeWidth: 15,
+      outerStrokeColor: '#FF7F50',
+      innerStrokeColor: '#E6A577',
+      innerStrokeWidth: 10,
+      showSubtitle: false,
+      showUnits: false,
+      showBackground: false,
+      startFromZero: false,
+      titleColor: '#FFFFFF',
+    })
  
   ],
   providers: [],
