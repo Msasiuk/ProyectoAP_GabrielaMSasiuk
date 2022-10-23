@@ -4,6 +4,7 @@ import com.portofio.GMsasiuk.Entity.Persona;
 import com.portofio.GMsasiuk.Interface.IPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,12 +25,14 @@ public class PersonaController {
         return ipersonaService.traerListadoPersona();
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/persona/crear")
     public String crearPersona (@RequestBody Persona persona){
         ipersonaService.guardarPersona(persona);
         return "La persona ingresada fue guardada exitosamente";
     }
-    
+   
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/persona/borrar/{id}")
     public String borrarPersona (@PathVariable Long id){
         ipersonaService.borrarPersona(id);
@@ -37,6 +40,7 @@ public class PersonaController {
     }
     
     // URL:PUERTO/personas/editar/id?nombre=NuevoNombre&apellido=NuevoApellido&img=NuevoString
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/persona/editar/datos/{id}")
     public Persona editarPersona (@PathVariable Long id,
             @RequestParam("nombre") String nuevoNombre,
@@ -52,10 +56,10 @@ public class PersonaController {
         return persona;
     }
     
-    @GetMapping("/persona/traer/perfil")
-    public Persona traerPersona(){
-        return ipersonaService.traerPersona((long)1);
-    }
+//    @GetMapping("/persona/traer/perfil")
+//    public Persona traerPersona(){
+//        return ipersonaService.traerPersona((long)1);
+//    }
         
 } 
     

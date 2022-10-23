@@ -32,8 +32,21 @@
     <a href="#"
       ><img class="logoRedes" src="../../../assets/telegram.svg" alt="telegram"
     /></a>
-    <button type="button" class="btn btn-outline-light" (click)="login()">
-      Login
+    <button
+      type="button"
+      class="btn btn-outline-light"
+      (click)="login()"
+      *ngIf="!isLogged"
+    >
+      Ingresar
+    </button>
+    <button
+      type="button"
+      class="btn btn-outline-light"
+      (click)="onLogOut()"
+      *ngIf="isLogged"
+    >
+      Cerrar Sesion
     </button>
   </div>
 </div>
