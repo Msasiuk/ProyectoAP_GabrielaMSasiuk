@@ -12,7 +12,8 @@ public class hys {
     private int id;
     private String nombre;
     private int porcentaje;
-
+    
+    //Métodos constructores
     public hys() {
     }
 
@@ -20,7 +21,8 @@ public class hys {
         this.nombre = nombre;
         this.porcentaje = porcentaje;
     }
-
+    
+    //Métodos getters y setters
     public int getId() {
         return id;
     }

@@ -17,16 +17,15 @@ export class ExperienciaComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarExperiencia();
-    if(this.tokenService.getToken()){
+    if (this.tokenService.getToken()) {
       this.isLogged = true;
     } else {
       this.isLogged = false;
     }
-
   }
- 
+
   cargarExperiencia(): void {
-    this.sExperiencia.lista().subscribe(data => {this.expe = data;})
+    this.sExperiencia.lista().subscribe(data => { this.expe = data; })
   }
 
   delete(id?: number){
@@ -41,5 +40,3 @@ export class ExperienciaComponent implements OnInit {
     }
   }
 }
-
-
