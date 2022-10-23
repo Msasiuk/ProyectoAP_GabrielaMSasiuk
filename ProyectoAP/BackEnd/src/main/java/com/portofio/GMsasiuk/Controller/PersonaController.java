@@ -1,6 +1,6 @@
 package com.portofio.GMsasiuk.Controller;
 
-import com.portofio.GMsasiuk.DTO.dtoPersona;
+import com.portofio.GMsasiuk.Dto.dtoPersona;
 import com.portofio.GMsasiuk.Entity.Persona;
 import com.portofio.GMsasiuk.Security.Controller.Mensaje;
 import com.portofio.GMsasiuk.Service.ImpPersonaService;

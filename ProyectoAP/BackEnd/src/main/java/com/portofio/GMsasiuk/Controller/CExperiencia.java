@@ -1,6 +1,6 @@
 package com.portofio.GMsasiuk.Controller;
 
-import com.portofio.GMsasiuk.DTO.dtoExperiencia;
+import com.portofio.GMsasiuk.Dto.dtoExperiencia;
 import com.portofio.GMsasiuk.Entity.Experiencia;
 import com.portofio.GMsasiuk.Security.Controller.Mensaje;
 import com.portofio.GMsasiuk.Service.SExperiencia;

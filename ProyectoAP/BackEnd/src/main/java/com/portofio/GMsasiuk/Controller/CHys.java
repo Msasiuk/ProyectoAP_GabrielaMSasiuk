@@ -1,6 +1,6 @@
 package com.portofio.GMsasiuk.Controller;
 
-import com.portofio.GMsasiuk.DTO.dtoHys;
+import com.portofio.GMsasiuk.Dto.dtoHys;
 import com.portofio.GMsasiuk.Entity.hys;
 import com.portofio.GMsasiuk.Security.Controller.Mensaje;
 import com.portofio.GMsasiuk.Service.Shys;

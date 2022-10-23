@@ -1,4 +1,4 @@
-package com.portofio.GMsasiuk.DTO;
+package com.portofio.GMsasiuk.Dto;
 
 import javax.validation.constraints.NotBlank;
 
