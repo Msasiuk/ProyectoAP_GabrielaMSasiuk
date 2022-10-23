@@ -1,6 +1,6 @@
 package com.portofio.GMsasiuk.Security.jwt;
 
-import com.portofio.GMsasiuk.Security.Service.UserDetailsServiceImpl;
+import com.portofio.GMsasiuk.Security.Service.UserDetailsImpl;
 import java.io.IOException;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -21,7 +21,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     @Autowired
     JwtProvider jwtProvider;
     @Autowired
-    UserDetailsServiceImpl userDetailsServiceImpl;
+    UserDetailsImpl userDetailsServiceImpl;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {

@@ -2,23 +2,24 @@ package com.portofio.GMsasiuk.DTO;
 
 import javax.validation.constraints.NotBlank;
 
-public class dtoExperiencia {
+public class dtoEducacion {
     @NotBlank
     private String nombreE;
     @NotBlank
     private String descripcionE;
     
-    //Métodos Constructores
+    //Métodos constructores
 
-    public dtoExperiencia() {
+    public dtoEducacion() {
     }
 
-    public dtoExperiencia(String nombreE, String descripcionE) {
+    public dtoEducacion(String nombreE, String descripcionE) {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
     }
-    //Métodos Getters & Setters
 
+     //Métodos getters y setters
+    
     public String getNombreE() {
         return nombreE;
     }
@@ -34,5 +35,6 @@ public class dtoExperiencia {
     public void setDescripcionE(String descripcionE) {
         this.descripcionE = descripcionE;
     }
+    
     
 }

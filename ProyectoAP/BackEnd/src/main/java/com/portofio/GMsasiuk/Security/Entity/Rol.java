@@ -18,15 +18,16 @@ public class Rol {
     @Enumerated(EnumType.STRING)
     private RolNombre rolNombre;
     
-    //Sobrecarga de método constructor
+    //Constructor
     public Rol() {
     }
-    
+
     public Rol(RolNombre rolNombre) {
         this.rolNombre = rolNombre;
     }
     
-    //Método getter y setter
+    //Getter y Setter
+
     public int getId() {
         return id;
     }
@@ -42,7 +43,6 @@ public class Rol {
     public void setRolNombre(RolNombre rolNombre) {
         this.rolNombre = rolNombre;
     }
-    
     
     
 }

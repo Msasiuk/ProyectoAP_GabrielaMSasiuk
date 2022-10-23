@@ -1,7 +1,7 @@
 package com.portofio.GMsasiuk.Security.Service;
 
 import com.portofio.GMsasiuk.Security.Entity.Usuario;
-import com.portofio.GMsasiuk.Security.Repository.IUsuarioRepository;
+import com.portofio.GMsasiuk.Security.Repository.iUsuarioRepository;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class UsuarioService {
     @Autowired
-    IUsuarioRepository iusuarioRepository;
+    iUsuarioRepository iusuarioRepository;
     
     public Optional<Usuario> getByNombreUsuario(String nombreUsuario){
         return iusuarioRepository.findByNombreUsuario(nombreUsuario);
@@ -27,6 +27,5 @@ public class UsuarioService {
     
     public void save(Usuario usuario){
         iusuarioRepository.save(usuario);
-    }    
-    
+    }
 }

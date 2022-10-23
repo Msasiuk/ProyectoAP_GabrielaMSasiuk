@@ -4,15 +4,15 @@ import com.portofio.GMsasiuk.Entity.Persona;
 import java.util.List;
 
 public interface IPersonaService {
-    // Metodo para traer listado de personas
-    public List<Persona> traerListadoPersona();
+    //Traer una lista de personas
+    public List<Persona> getPersona();
     
-    // Metodo para guardar una persona
-    public void guardarPersona (Persona persona);
+    //Guardar un objeto de tipo Persona
+    public void savePersona(Persona persona);
     
-    // Metodo para eliminar una persona de la lista por id
-    public void borrarPersona (Long id);
+    //Eliminar un objeto pero lo buscamos por ID
+    public void deletePersona(Long id);
     
-    // Metodo para buscar persona de una lista por id
-    public Persona traerPersona (Long id);
+    //Buscar una persona por ID
+    public Persona findPersona(Long id);
 }
