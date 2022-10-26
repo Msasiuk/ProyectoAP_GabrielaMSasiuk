@@ -2,14 +2,15 @@ package com.portofio.GMsasiuk.Security.Dto;
 
 import javax.validation.constraints.NotBlank;
 
+//Clase que contiene el modelo de login de los usuario
 public class LoginUsuario {
+
     @NotBlank
     private String nombreUsuario;
     @NotBlank
     private String password;
-    
-    //Getter & Setter
 
+    //Mét. getters y setters
     public String getNombreUsuario() {
         return nombreUsuario;
     }
@@ -25,5 +26,5 @@ public class LoginUsuario {
     public void setPassword(String password) {
         this.password = password;
     }
-    
+
 }

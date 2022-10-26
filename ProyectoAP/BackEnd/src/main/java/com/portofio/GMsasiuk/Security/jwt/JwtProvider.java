@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
+//Clase que genera el token
 @Component
 public class JwtProvider {
 
@@ -23,34 +24,36 @@ public class JwtProvider {
     private String secret;
     @Value("${jwt.expiration}")
     private int expiration;
-    
-    public String generateToken(Authentication authentication){
+
+    //Mét. propios de la clase que generan y validan el token
+    public String generateToken(Authentication authentication) {
         UsuarioPrincipal usuarioPrincipal = (UsuarioPrincipal) authentication.getPrincipal();
         return Jwts.builder().setSubject(usuarioPrincipal.getUsername())
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(new Date().getTime()+expiration*1000))
-                .signWith(SignatureAlgorithm.HS512, secret).compact();
+                .setExpiration(new Date(new Date().getTime() + expiration * 1000))
+                .signWith(SignatureAlgorithm.HS512, secret)
+                .compact();
     }
-    
-    public String getNombreUsuarioFromToken(String token){
+
+    public String getNombreUsuarioFromToken(String token) {
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody().getSubject();
     }
-    
-    public boolean validateToken(String token){
-        try{
+
+    public boolean validateToken(String token) {
+        try {
             Jwts.parser().setSigningKey(secret).parseClaimsJws(token);
             return true;
         } catch (MalformedJwtException e) {
-            logger.error("Token mal formado");
-        }catch (UnsupportedJwtException e) {
-            logger.error("Token no soportado");
-        }catch (ExpiredJwtException e) {
-            logger.error("Token expirado");
-        }catch (IllegalArgumentException e) {
-            logger.error("Token vacío");
-        }catch (SignatureException e) {
-            logger.error("Firma no valida");
-        } 
+            logger.error("El Token está mal formado");
+        } catch (UnsupportedJwtException e) {
+            logger.error("El Token no es soportado");
+        } catch (ExpiredJwtException e) {
+            logger.error("El Token ha expirado");
+        } catch (IllegalArgumentException e) {
+            logger.error("El Token esta vacío");
+        } catch (SignatureException e) {
+            logger.error("Fallo de la firma");
+        }
         return false;
     }
 }

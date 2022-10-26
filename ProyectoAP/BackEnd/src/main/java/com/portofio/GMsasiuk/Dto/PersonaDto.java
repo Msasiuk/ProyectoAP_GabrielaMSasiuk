@@ -2,33 +2,32 @@ package com.portofio.GMsasiuk.Dto;
 
 import javax.validation.constraints.NotBlank;
 
-public class dtoPersona {
-   @NotBlank
+public class PersonaDto {
+
+    @NotBlank
     private String nombre;
-   
-   @NotBlank 
+
+    @NotBlank
     private String apellido;
-   
-   @NotBlank 
+
+    @NotBlank
     private String descripcion;
-   
-   @NotBlank 
+
+    @NotBlank
     private String img;
 
-   //Método constructor
-    public dtoPersona() {
+    //Mét. constructores
+    public PersonaDto() {
     }
 
-    public dtoPersona(String nombre, String apellido, String descripcion, String img) {
+    public PersonaDto(String nombre, String apellido, String descripcion, String img) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.descripcion = descripcion;
         this.img = img;
     }
 
-    
     //Métodos getters y setters
-
     public String getNombre() {
         return nombre;
     }
@@ -60,5 +59,5 @@ public class dtoPersona {
     public void setImg(String img) {
         this.img = img;
     }
-   
+
 }

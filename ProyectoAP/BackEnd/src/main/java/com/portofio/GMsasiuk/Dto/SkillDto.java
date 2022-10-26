@@ -2,23 +2,23 @@ package com.portofio.GMsasiuk.Dto;
 
 import javax.validation.constraints.NotBlank;
 
+public class SkillDto {
 
-public class dtoHys {
     @NotBlank
     private String nombre;
     @NotBlank
     private int porcentaje;
 
-    //Métodos constructores
-    public dtoHys() {
+    //Mét. constructores
+    public SkillDto() {
     }
 
-    public dtoHys(String nombre, int porcentaje) {
+    public SkillDto(String nombre, int porcentaje) {
         this.nombre = nombre;
         this.porcentaje = porcentaje;
     }
 
-    //Métodos getters y setters
+    //Mét. getters y setters
     public String getNombre() {
         return nombre;
     }
@@ -34,6 +34,5 @@ public class dtoHys {
     public void setPorcentaje(int porcentaje) {
         this.porcentaje = porcentaje;
     }
-    
-    
+
 }

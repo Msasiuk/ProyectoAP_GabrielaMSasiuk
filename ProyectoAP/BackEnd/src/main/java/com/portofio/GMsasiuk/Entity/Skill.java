@@ -6,23 +6,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class hys {
+public class Skill {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nombre;
     private int porcentaje;
-    
-    //Métodos constructores
-    public hys() {
+
+    //Mét. constructores
+    public Skill() {
     }
 
-    public hys(String nombre, int porcentaje) {
+    public Skill(String nombre, int porcentaje) {
         this.nombre = nombre;
         this.porcentaje = porcentaje;
     }
-    
-    //Métodos getters y setters
+
+    //Mét. getters y setters
     public int getId() {
         return id;
     }
@@ -47,7 +48,4 @@ public class hys {
         this.porcentaje = porcentaje;
     }
 
-    
-    
-    
 }

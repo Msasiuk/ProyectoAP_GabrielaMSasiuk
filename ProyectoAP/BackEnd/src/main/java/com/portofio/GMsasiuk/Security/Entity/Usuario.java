@@ -13,8 +13,10 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 
+//Clase que accederá a la base de datos
 @Entity
 public class Usuario {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -27,12 +29,12 @@ public class Usuario {
     private String email;
     @NotNull
     private String password;
+    //Crea una nueva tabla que contenga ID de usuario y ID de rol por ser relación de muchos a muchos 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name ="usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
+    @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
     private Set<Rol> roles = new HashSet<>();
-    
-    //Constructores
 
+    //Mét. constructores
     public Usuario() {
     }
 
@@ -42,9 +44,8 @@ public class Usuario {
         this.email = email;
         this.password = password;
     }
-    
-    //Getter Y Setter
 
+    //Métodos getters y setters
     public int getId() {
         return id;
     }
@@ -92,5 +93,5 @@ public class Usuario {
     public void setRoles(Set<Rol> roles) {
         this.roles = roles;
     }
-    
+
 }

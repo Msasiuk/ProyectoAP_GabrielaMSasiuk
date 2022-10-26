@@ -1,18 +1,19 @@
 package com.portofio.GMsasiuk.Security.Controller;
 
+//Clase que será usada para mostrar mensajes de distintos mét. de otras clases
 public class Mensaje {
-    private String mensaje;
-    
-    //Constructor
 
+    private String mensaje;
+
+    //Mét. constructores
     public Mensaje() {
     }
 
     public Mensaje(String mensaje) {
         this.mensaje = mensaje;
     }
-    //Getter y Setter
 
+    //Mét. getters y setters
     public String getMensaje() {
         return mensaje;
     }
@@ -20,5 +21,5 @@ public class Mensaje {
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
     }
-    
+
 }

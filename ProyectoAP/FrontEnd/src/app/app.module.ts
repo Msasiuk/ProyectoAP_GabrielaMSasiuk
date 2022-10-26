@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ProyectoComponent } from './components/proyecto/proyecto.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { interceptorProvider } from './service/interceptor-service';
@@ -46,11 +46,11 @@ import { EditAcercaDeComponent } from './components/acerca-de/edit-acerca-de.com
     EditeducacionComponent,
     EditSkillComponent,
     NewSkillComponent,
-    EditAcercaDeComponent
+    EditAcercaDeComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, 
+    AppRoutingModule,
     FormsModule,
     NgCircleProgressModule.forRoot({
       maxPercent: 100,
@@ -66,9 +66,8 @@ import { EditAcercaDeComponent } from './components/acerca-de/edit-acerca-de.com
       titleColor: '#FFFFFF',
     }),
     HttpClientModule,
-
   ],
   providers: [interceptorProvider],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

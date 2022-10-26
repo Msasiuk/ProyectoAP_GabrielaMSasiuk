@@ -1,6 +1,6 @@
 package com.portofio.GMsasiuk.Security.Entity;
 
-import com.portofio.GMsasiuk.Security.Enum.RolNombre;
+import com.portofio.GMsasiuk.Security.Enums.RolNombre;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -11,23 +11,23 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 public class Rol {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @NotNull
     @Enumerated(EnumType.STRING)
     private RolNombre rolNombre;
-    
-    //Constructor
+
+    //Mét. constructores
     public Rol() {
     }
 
     public Rol(RolNombre rolNombre) {
         this.rolNombre = rolNombre;
     }
-    
-    //Getter y Setter
 
+    //Mét. getters y setters
     public int getId() {
         return id;
     }
@@ -43,6 +43,5 @@ public class Rol {
     public void setRolNombre(RolNombre rolNombre) {
         this.rolNombre = rolNombre;
     }
-    
-    
+
 }
