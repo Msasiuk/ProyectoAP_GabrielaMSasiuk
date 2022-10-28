@@ -25,6 +25,11 @@ import { EditeducacionComponent } from './components/educacion/editeducacion.com
 import { EditSkillComponent } from './components/skills/edit-skill.component';
 import { NewSkillComponent } from './components/skills/new-skill.component';
 import { EditAcercaDeComponent } from './components/acerca-de/edit-acerca-de.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { EditProyectoComponent } from './components/proyecto/edit-proyecto.component';
+import { NewProyectoComponent } from './components/proyecto/new-proyecto.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +52,8 @@ import { EditAcercaDeComponent } from './components/acerca-de/edit-acerca-de.com
     EditSkillComponent,
     NewSkillComponent,
     EditAcercaDeComponent,
+    EditProyectoComponent,
+    NewProyectoComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +73,8 @@ import { EditAcercaDeComponent } from './components/acerca-de/edit-acerca-de.com
       titleColor: '#FFFFFF',
     }),
     HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage()),
   ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent],

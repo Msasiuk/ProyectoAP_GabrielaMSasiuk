@@ -1,4 +1,4 @@
-<div class="container-fluid row">
+<div class="container-fluid row" *ngIf="persona">
   <div class="col-lg-2">
     <button
       type="button"
@@ -6,11 +6,15 @@
       routerLink="/editacercade/1"
       *ngIf="isLogged"
     >
-      Edit Person
+      Editar
     </button>
   </div>
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-    <img id="fotoFrente" src="#" alt="Foto de Gabriela Maza Sasiuk" />
+    <img
+      id="imagen"
+      src="{{ persona.img }}"
+      alt="Foto de Gabriela Maza Sasiuk"
+    />
     <p id="nombre">{{ persona.nombre }} {{ persona.apellido }}</p>
     <p id="titulo">Full Stack Developer Trainee</p>
   </div>

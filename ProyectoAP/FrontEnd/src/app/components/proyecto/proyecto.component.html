@@ -1,15 +1,36 @@
 <div class="row">
   <h2>Proyectos</h2>
-  <div class="col-sm-12 col-md-7 col-lg-7">
-    <h3>Ejemplo</h3>
-    <p>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio at
-      dolorum cumque recusandae deleniti repellendus minima reiciendis omnis,
-      aliquam dicta fugit, sit atque doloribus placeat saepe accusamus natus
-      pariatur ullam.
-    </p>
+  <div class="col-lg-2">
+    <button
+      type="button"
+      class="btn btn-dark"
+      routerLink="/newproyecto"
+      *ngIf="isLogged"
+    >
+      <i class="bi bi-plus-square"></i>
+    </button>
   </div>
-  <div class="col-sm-12 col-md-4 col-lg-4 offset-md-1 offset-lg-1">
-    <img class="img-fluid" src="#" alt="Imagen de Ejemplo" />
+
+  <div class="col-sm-12 col-md-7 col-lg-7" *ngFor="let Proyecto of proyecto">
+    <h3>{{ Proyecto.nombreP }}</h3>
+    <p>{{ Proyecto.fechaInicioP }} - {{ Proyecto.fechaFinP }}</p>
+    <p>{{ Proyecto.descripcionP }}</p>
+
+    <div *ngIf="Proyecto">
+      <img
+        id="imagen"
+        src="{{ Proyecto.imgP }}"
+        alt="Foto de Gabriela Maza Sasiuk"
+      />
+    </div>
+    <br />
+    <p>{{ Proyecto.linkP }}</p>
+
+    <button class="btn btn-light" routerLink="/editproyecto/{{ Proyecto.id }}">
+      <i class="bi bi-pencil-fill"></i>
+    </button>
+    <button class="btn btn-danger" (click)="delete(Proyecto.id)">
+      <i class="bi bi-trash-fill"></i>
+    </button>
   </div>
 </div>

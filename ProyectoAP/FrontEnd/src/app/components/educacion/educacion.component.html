@@ -7,7 +7,7 @@
       routerLink="/nuevaedu"
       *ngIf="isLogged"
     >
-      Agregar Educacion
+      <i class="bi bi-plus-square"></i>
     </button>
   </div>
 
@@ -25,12 +25,12 @@
               class="btn btn-light"
               routerLink="/editedu/{{ Educacion.id }}"
             >
-              <i class="bi bi-pencil-fill"></i> EDITAR
+              <i class="bi bi-pencil-fill"></i>
             </button>
           </td>
           <td *ngIf="isLogged">
             <button class="btn btn-danger" (click)="delete(Educacion.id)">
-              <i class="bi bi-trash-fill"></i> BORRAR
+              <i class="bi bi-trash-fill"></i>
             </button>
           </td>
         </tr>

@@ -21,6 +21,7 @@ public class Educacion {
     public Educacion(String nombreE, String descripcionE) {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
+
     }
 
     //Mét. getters y setters
