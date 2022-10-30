@@ -9,39 +9,38 @@ import javax.validation.constraints.Size;
 
 @Entity
 public class Proyecto {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    
+
     @NotNull
-    @Size(min = 1, max = 50, message = "El nombre no cumple con la longitud requerida")
+    @Size(min = 5, message = "El nombre no cumple con la longitud requerida")
     private String nombreP;
 
     @NotNull
-    @Size(min = 1, max = 50, message = "La descripción no cumple con la longitud requerida")
+    @Size(min = 5, message = "La descripción no cumple con la longitud requerida")
     private String descripcionP;
-    
-    private String linkP;
-    
+
     private String imgP;
-    
+
     @NotNull
-    private int fechaInicioP;
-    
-    private int fechaFinP;
-    
+    @Size(min = 5, message = "El link no cumple con la longitud requerida")
+    private String linkP;
+
+    @NotNull
+    private int fechaP;
+
     //Mét. constructores
     public Proyecto() {
     }
 
-    public Proyecto(String nombreP, String descripcionP, String linkP, String imgP, int fechaInicioP, int fechaFinP) {
+    public Proyecto(String nombreP, String descripcionP, String imgP, String linkP, int fechaP) {
         this.nombreP = nombreP;
         this.descripcionP = descripcionP;
-        this.linkP = linkP;
         this.imgP = imgP;
-        this.fechaInicioP = fechaInicioP;
-        this.fechaFinP = fechaFinP;
+        this.linkP = linkP;
+        this.fechaP = fechaP;
     }
 
     //Mét. getters y setters
@@ -69,14 +68,6 @@ public class Proyecto {
         this.descripcionP = descripcionP;
     }
 
-    public String getLinkP() {
-        return linkP;
-    }
-
-    public void setLinkP(String linkP) {
-        this.linkP = linkP;
-    }
-
     public String getImgP() {
         return imgP;
     }
@@ -85,20 +76,20 @@ public class Proyecto {
         this.imgP = imgP;
     }
 
-    public int getFechaInicioP() {
-        return fechaInicioP;
+    public String getLinkP() {
+        return linkP;
     }
 
-    public void setFechaInicioP(int fechaInicioP) {
-        this.fechaInicioP = fechaInicioP;
+    public void setLinkP(String linkP) {
+        this.linkP = linkP;
     }
 
-    public int getFechaFinP() {
-        return fechaFinP;
+    public int getFechaP() {
+        return fechaP;
     }
 
-    public void setFechaFinP(int fechaFinP) {
-        this.fechaFinP = fechaFinP;
+    public void setFechaP(int fechaP) {
+        this.fechaP = fechaP;
     }
-    
+
 }

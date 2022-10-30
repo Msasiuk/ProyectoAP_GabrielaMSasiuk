@@ -14,7 +14,7 @@ export class ProyectoService {
 
   //Mét. propios de la clase para traer lista, traer, guardar, actualizar y borrar proyectos.
   public lista(): Observable<Proyecto[]> {
-    return this.httpClient.get<Proyecto[]>(this.URL + 'lista');
+    return this.httpClient.get<Proyecto[]>(this.URL + 'list');
   }
 
   public detail(id: number): Observable<Proyecto> {

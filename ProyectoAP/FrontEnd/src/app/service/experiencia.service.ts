@@ -8,15 +8,13 @@ import { Experiencia } from '../model/experiencia';
   providedIn: 'root',
 })
 export class SExperienciaService {
-  // URL = 'http://localhost:8080/explab/';
-  // URL = 'https://prueba-msasiuk.herokuapp.com/explab/';
-  URL = environment.URL + 'explab/';
+  URL = environment.URL + 'experiencia/';
 
   constructor(private httpClient: HttpClient) {}
 
   //Mét. propios de la clase para traer lista, traer, guardar, actualizar y borrar experiencias.
   public lista(): Observable<Experiencia[]> {
-    return this.httpClient.get<Experiencia[]>(this.URL + 'lista');
+    return this.httpClient.get<Experiencia[]>(this.URL + 'list');
   }
 
   public detail(id: number): Observable<Experiencia> {

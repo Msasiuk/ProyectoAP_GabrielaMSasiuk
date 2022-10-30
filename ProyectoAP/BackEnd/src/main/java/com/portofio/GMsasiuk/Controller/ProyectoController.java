@@ -21,20 +21,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/proyecto")
-//@CrossOrigin(origins = "http://localhost:4200")
-//@CrossOrigin(origins = "https://frontpruebamsasiuk.web.app")
 @CrossOrigin(origins = {"https://frontpruebamsasiuk.web.app", "http://localhost:4200"})
 public class ProyectoController {
-
+    //Clase que permite crear, buscar, editar, borrar los datos de proyecto del portfolio
+    
     @Autowired
     ProyectoService proyectoService;
 
-    @GetMapping("/lista")
+    //Mét. para traer lista de proyectos
+    @GetMapping("/list")
     public ResponseEntity<List<Proyecto>> list() {
         List<Proyecto> list = proyectoService.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
+    //Mét. para traer proyecto según ID
     @GetMapping("/detail/{id}")
     public ResponseEntity<Proyecto> getById(@PathVariable("id") int id) {
         if (!proyectoService.existsById(id)) {
@@ -55,14 +56,11 @@ public class ProyectoController {
         return new ResponseEntity(new Mensaje("Proyecto eliminado correctamente"), HttpStatus.OK);
     }
 
-    //Mét. para crear proyectoes previas validaciones
+    //Mét. para crear proyecto previas validaciones
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody ProyectoDto proyectoDto) {
         if (StringUtils.isBlank(proyectoDto.getNombreP())) {
             return new ResponseEntity(new Mensaje("El nombre del proyecto es obligatorio"), HttpStatus.BAD_REQUEST);
-        }
-        if (proyectoService.existsByNombreP(proyectoDto.getNombreP())) {
-            return new ResponseEntity(new Mensaje("El nombre del proyecto ya existe"), HttpStatus.BAD_REQUEST);
         }
         if (StringUtils.isBlank(proyectoDto.getDescripcionP())) {
             return new ResponseEntity(new Mensaje("La descripción del proyecto es obligatorio"), HttpStatus.BAD_REQUEST);
@@ -70,48 +68,52 @@ public class ProyectoController {
         if (StringUtils.isBlank(proyectoDto.getLinkP())) {
             return new ResponseEntity(new Mensaje("El link del proyecto es obligatorio"), HttpStatus.BAD_REQUEST);
         }
+        if (StringUtils.isBlank(Integer.toString(proyectoDto.getFechaP()))) {
+            return new ResponseEntity(new Mensaje("La fecha del proyecto es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
 
-        // Argumentos de constructor => String nombreP, String descripcionP, String linkP, String imgP, int fechaInicioP, int fechaFinP
+        // public Proyecto(String nombreP, String descripcionP, String imgP, String linkP, int fechaP)
         Proyecto proyecto = new Proyecto(
-                proyectoDto.getNombreP(), proyectoDto.getDescripcionP(), 
-                proyectoDto.getLinkP(), proyectoDto.getImgP(),
-                proyectoDto.getFechaInicioP(), proyectoDto.getFechaFinP()
-        
-        ); 
-
+                proyectoDto.getNombreP(),
+                proyectoDto.getDescripcionP(),
+                proyectoDto.getImgP(),
+                proyectoDto.getLinkP(),
+                proyectoDto.getFechaP()
+        );
         proyectoService.save(proyecto);
-        return new ResponseEntity(new Mensaje("Proyecto creado"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Proyecto creado correctamente"), HttpStatus.OK);
 
     }
 
-    //Mét. que actualiza la proyecto según ID previas validaciones
+    //Mét. que actualiza ed. según ID previas validaciones
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody ProyectoDto proyectoDto) {
         if (!proyectoService.existsById(id)) {
             return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.NOT_FOUND);
         }
-        if (proyectoService.existsByNombreP(proyectoDto.getNombreP()) && proyectoService.getByNombreE(proyectoDto.getNombreP()).get().getId() != id) {
-            return new ResponseEntity(new Mensaje("Ese nombre ya existe"), HttpStatus.BAD_REQUEST);
-        }
         if (StringUtils.isBlank(proyectoDto.getNombreP())) {
-            return new ResponseEntity(new Mensaje("El nombre de la proyecto no puede estar vacio"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("El nombre del proyecto es obligatorio"), HttpStatus.BAD_REQUEST);
         }
         if (StringUtils.isBlank(proyectoDto.getDescripcionP())) {
-            return new ResponseEntity(new Mensaje("La descripción de la proyecto no puede estar vacio"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("El título del proyecto es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
+        if (StringUtils.isBlank(proyectoDto.getLinkP())) {
+            return new ResponseEntity(new Mensaje("El link del proyecto es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
+        if (StringUtils.isBlank(Integer.toString(proyectoDto.getFechaP()))) {
+            return new ResponseEntity(new Mensaje("La fecha del proyecto es obligatorio"), HttpStatus.BAD_REQUEST);
         }
 
+        // public Proyecto(String nombreP, String descripcionP, String imgP, String linkP, int fechaP)
         Proyecto proyecto = proyectoService.getOne(id).get();
-
-        // Argumentos de constructor => String nombreP, String descripcionP, String linkP, String imgP, int fechaInicioP, int fechaFinP
         proyecto.setNombreP(proyectoDto.getNombreP());
         proyecto.setDescripcionP(proyectoDto.getDescripcionP());
-        proyecto.setLinkP(proyectoDto.getLinkP());
         proyecto.setImgP(proyectoDto.getImgP());
-        proyecto.setFechaInicioP(proyectoDto.getFechaInicioP());
-        proyecto.setFechaFinP(proyectoDto.getFechaFinP());
-        
+        proyecto.setLinkP(proyectoDto.getLinkP());
+        proyecto.setFechaP(proyectoDto.getFechaP());
+
         proyectoService.save(proyecto);
 
-        return new ResponseEntity(new Mensaje("Proyecto actualizado"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Proyecto actualizado correctamente"), HttpStatus.OK);
     }
 }

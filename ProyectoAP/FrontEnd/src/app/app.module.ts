@@ -11,7 +11,7 @@ import { ExperienciaComponent } from './components/experiencia/experiencia.compo
 import { EducacionComponent } from './components/educacion/educacion.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { FormsModule } from '@angular/forms';
-import { SkillsComponent } from './components/skills/skills.component';
+import { SoftSkillComponent } from './components/soft-skill/soft-skill.component';
 import { ProyectoComponent } from './components/proyecto/proyecto.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,14 +22,17 @@ import { NewExperienciaComponent } from './components/experiencia/new-experienci
 import { EditExperienciaComponent } from './components/experiencia/edit-experiencia.component';
 import { NeweducacionComponent } from './components/educacion/neweducacion.component';
 import { EditeducacionComponent } from './components/educacion/editeducacion.component';
-import { EditSkillComponent } from './components/skills/edit-skill.component';
-import { NewSkillComponent } from './components/skills/new-skill.component';
+import { EditSoftSkillComponent } from './components/soft-skill/edit-soft-skill.component';
+import { NewSoftSkillComponent } from './components/soft-skill/new-soft-kill.component';
 import { EditAcercaDeComponent } from './components/acerca-de/edit-acerca-de.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideStorage,getStorage } from '@angular/fire/storage';
+import { provideStorage, getStorage } from '@angular/fire/storage';
 import { EditProyectoComponent } from './components/proyecto/edit-proyecto.component';
 import { NewProyectoComponent } from './components/proyecto/new-proyecto.component';
+import { HardSkillComponent } from './components/hard-skill/hard-skill.component';
+import { NewHardSkillComponent } from './components/hard-skill/new-hard-skill.component';
+import { EditHardSkillComponent } from './components/hard-skill/edit-hard-skill.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,7 @@ import { NewProyectoComponent } from './components/proyecto/new-proyecto.compone
     AcercaDeComponent,
     ExperienciaComponent,
     EducacionComponent,
-    SkillsComponent,
+    SoftSkillComponent,
     ProyectoComponent,
     FooterComponent,
     HomeComponent,
@@ -49,11 +52,14 @@ import { NewProyectoComponent } from './components/proyecto/new-proyecto.compone
     EditExperienciaComponent,
     NeweducacionComponent,
     EditeducacionComponent,
-    EditSkillComponent,
-    NewSkillComponent,
+    EditSoftSkillComponent,
+    NewSoftSkillComponent,
     EditAcercaDeComponent,
     EditProyectoComponent,
     NewProyectoComponent,
+    HardSkillComponent,
+    NewHardSkillComponent,
+    EditHardSkillComponent,
   ],
   imports: [
     BrowserModule,

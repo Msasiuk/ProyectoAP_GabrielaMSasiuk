@@ -11,30 +11,29 @@
     </button>
   </div>
 
-  <div class="col lg 1"></div>
-  <div class="col-lg-11">
-    <table class="table">
-      <tbody>
-        <tr *ngFor="let Educacion of educacion">
-          <td>
-            <h2>{{ Educacion.nombreE }}</h2>
-          </td>
-          <td>{{ Educacion.descripcionE }}</td>
-          <td *ngIf="isLogged">
-            <button
-              class="btn btn-light"
-              routerLink="/editedu/{{ Educacion.id }}"
-            >
-              <i class="bi bi-pencil-fill"></i>
-            </button>
-          </td>
-          <td *ngIf="isLogged">
-            <button class="btn btn-danger" (click)="delete(Educacion.id)">
-              <i class="bi bi-trash-fill"></i>
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="row" *ngFor="let Educacion of educacion">
+    <div class="col-xm-3 col-md-2" *ngIf="Educacion">
+      <img
+        id="imagen"
+        src="{{ Educacion.imgInstitucionEd }}"
+        alt="Logo de institucion"
+        max-width="100px"
+      />
+    </div>
+    <div class="col-xm-9 col-md-4">
+      <h2>{{ Educacion.institucionEd }}</h2>
+    </div>
+    <div class="col-xm-10 col-md-5">
+      <p>{{ Educacion.tituloEd }}</p>
+      <p>{{ Educacion.fechaInicioEd }} - {{ Educacion.fechaFinEd }}</p>
+    </div>
+    <div class="col-2 col-md-1" *ngIf="isLogged">
+      <button class="btn btn-light" routerLink="/editedu/{{ Educacion.id }}">
+        <i class="bi bi-pencil-fill"></i>
+      </button>
+      <button class="btn btn-danger" (click)="delete(Educacion.id)">
+        <i class="bi bi-trash-fill"></i>
+      </button>
+    </div>
   </div>
 </div>

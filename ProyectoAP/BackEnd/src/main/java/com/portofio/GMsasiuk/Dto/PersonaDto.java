@@ -4,11 +4,15 @@ import javax.validation.constraints.NotBlank;
 
 public class PersonaDto {
 
+    //public Persona(String nombre, String apellido, String titulo, String descripcion, String img)
     @NotBlank
     private String nombre;
 
     @NotBlank
     private String apellido;
+
+    @NotBlank
+    private String titulo;
 
     @NotBlank
     private String descripcion;
@@ -20,14 +24,15 @@ public class PersonaDto {
     public PersonaDto() {
     }
 
-    public PersonaDto(String nombre, String apellido, String descripcion, String img) {
+    public PersonaDto(String nombre, String apellido, String titulo, String descripcion, String img) {
         this.nombre = nombre;
         this.apellido = apellido;
+        this.titulo = titulo;
         this.descripcion = descripcion;
         this.img = img;
     }
 
-    //Métodos getters y setters
+    //Mét. getters y setters
     public String getNombre() {
         return nombre;
     }
@@ -42,6 +47,14 @@ public class PersonaDto {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public String getDescripcion() {

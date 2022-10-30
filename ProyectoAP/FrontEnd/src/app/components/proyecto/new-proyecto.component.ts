@@ -12,14 +12,12 @@ import { ProyectoService } from 'src/app/service/proyecto.service';
 export class NewProyectoComponent implements OnInit {
   nombreP: string;
   descripcionP: string;
-  linkP: string;
   imgP: string;
-  fechaInicioP: number;
-  fechaFinP: number;
+  linkP: string;
+  fechaP: number;
 
   constructor(
-    private proyectoS: ProyectoService,
-    private activatedRouter: ActivatedRoute,
+    private proyectoServie: ProyectoService,
     private router: Router,
     public imageService: ImageService
   ) {}
@@ -27,29 +25,22 @@ export class NewProyectoComponent implements OnInit {
   ngOnInit(): void {}
 
   onCreate(): void {
-    const proyecto = new Proyecto(
+    const proye = new Proyecto(
       this.nombreP,
       this.descripcionP,
-      this.linkP,
       this.imgP,
-      this.fechaInicioP,
-      this.fechaFinP
+      this.linkP,
+      this.fechaP
     );
-    this.proyectoS.save(proyecto).subscribe(
+    this.proyectoServie.save(proye).subscribe(
       (data) => {
-        alert('Proyecto añadido correctamente');
+        alert('Proyecto añadido');
         this.router.navigate(['']);
       },
       (err) => {
-        alert('No se pudo añadir el proyecto');
+        alert('Falló');
         this.router.navigate(['']);
       }
     );
-  }
-
-  uploadImage($event: any) {
-    const id = this.activatedRouter.snapshot.params['id'];
-    const name = 'proyecto_' + id;
-    this.imageService.uploadImage($event, name);
   }
 }

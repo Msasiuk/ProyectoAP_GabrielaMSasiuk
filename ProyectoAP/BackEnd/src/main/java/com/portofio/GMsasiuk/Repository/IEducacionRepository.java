@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IEducacionRepository extends JpaRepository<Educacion, Integer> {
-    //Mét. propios además de los que herededa de Jpa Repository
-    public Optional<Educacion> findByNombreE(String nombreE);
 
-    public boolean existsByNombreE(String nombreE);
+    public Optional<Educacion> findByInstitucionEd(String institucionEd);
+    
+    public boolean existsByInstitucionEd(String institucionEd);
 }

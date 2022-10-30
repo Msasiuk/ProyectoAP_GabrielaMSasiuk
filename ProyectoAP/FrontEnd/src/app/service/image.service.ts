@@ -5,7 +5,9 @@ import {
   uploadBytes,
   list,
   getDownloadURL,
+  StorageReference,
 } from '@angular/fire/storage';
+import { NgModel } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
@@ -20,17 +22,17 @@ export class ImageService {
     const imgRef = ref(this.storage, `imagen/` + name);
     uploadBytes(imgRef, file)
       .then((response) => {
-        this.getImages();
+        this.getImages(imgRef);
       })
       .catch((error) => console.log(error));
   }
 
-  getImages() {
+  getImages(imgRef: StorageReference) {
     const imagesRef = ref(this.storage, 'imagen');
     list(imagesRef)
       .then(async (response) => {
         for (let item of response.items) {
-          this.url = await getDownloadURL(item);
+          this.url = await getDownloadURL(imgRef);
           console.log('La URL es: ' + this.url);
         }
       })

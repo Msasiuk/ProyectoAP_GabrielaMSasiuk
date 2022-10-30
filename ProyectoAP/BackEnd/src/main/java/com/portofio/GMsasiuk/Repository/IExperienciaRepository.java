@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IExperienciaRepository extends JpaRepository<Experiencia, Integer> {
-    //Mét. propios de la clase
-    public Optional<Experiencia> findByNombreE(String nombreE);
 
-    public boolean existsByNombreE(String nombreE);
+    public Optional<Experiencia> findByEmpresaEx(String empresaEx);
+
+    public boolean existsByEmpresaEx(String empresaEx);
 }

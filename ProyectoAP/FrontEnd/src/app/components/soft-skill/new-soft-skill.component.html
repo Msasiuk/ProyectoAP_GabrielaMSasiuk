@@ -3,24 +3,24 @@
     <div>
       <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
         <div class="form-group">
-          <label for="nombre">Nombre de la Skill</label>
+          <label for="nombreSf">Nombre de la Skill</label>
           <input
             type="text"
             class="form-control"
-            id="nombre"
-            name="nombre"
-            [(ngModel)]="nombre"
+            id="nombreSf"
+            name="nombreSf"
+            [(ngModel)]="nombreSf"
             required
           />
         </div>
         <div class="form-group">
-          <label for="porcentaje">Porcentaje de la Skill</label>
+          <label for="porcentajeSf">Porcentaje de la Skill</label>
           <input
-            type="text"
+            type="number"
             class="form-control"
-            id="porcentaje"
-            name="porcentaje"
-            [(ngModel)]="porcentaje"
+            id="porcentajeSf"
+            name="porcentajeSf"
+            [(ngModel)]="porcentajeSf"
             required
           />
         </div>

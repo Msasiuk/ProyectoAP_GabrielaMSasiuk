@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { persona } from '../model/persona.model';
+import { persona } from '../model/persona';
 
 @Injectable({
   providedIn: 'root',
@@ -10,14 +10,14 @@ import { persona } from '../model/persona.model';
 export class PersonaService {
   // URL = 'http://localhost:8080/personas/';
   // URL = 'https://prueba-msasiuk.herokuapp.com/personas/';
-  URL = environment.URL + 'personas/';
+  URL = environment.URL + 'persona/';
 
   // Mét. constructor
   constructor(private httpClient: HttpClient) {}
 
   //Mét. propios de la clase para traer lista, traer, guardar, actualizar y borrar educación.
   public lista(): Observable<persona[]> {
-    return this.httpClient.get<persona[]>(this.URL + 'lista');
+    return this.httpClient.get<persona[]>(this.URL + 'list');
   }
 
   public detail(id: number): Observable<persona> {

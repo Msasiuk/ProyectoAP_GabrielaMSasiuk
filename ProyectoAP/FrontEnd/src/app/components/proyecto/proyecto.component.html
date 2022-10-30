@@ -11,26 +11,31 @@
     </button>
   </div>
 
-  <div class="col-sm-12 col-md-7 col-lg-7" *ngFor="let Proyecto of proyecto">
-    <h3>{{ Proyecto.nombreP }}</h3>
-    <p>{{ Proyecto.fechaInicioP }} - {{ Proyecto.fechaFinP }}</p>
-    <p>{{ Proyecto.descripcionP }}</p>
-
-    <div *ngIf="Proyecto">
+  <div class="row" *ngFor="let Proyecto of proyecto">
+    <div class="col-sm-12 col-md-5" *ngIf="Proyecto">
       <img
         id="imagen"
         src="{{ Proyecto.imgP }}"
-        alt="Foto de Gabriela Maza Sasiuk"
+        alt="Logo de institucion"
+        max-width="100px"
       />
     </div>
-    <br />
-    <p>{{ Proyecto.linkP }}</p>
-
-    <button class="btn btn-light" routerLink="/editproyecto/{{ Proyecto.id }}">
-      <i class="bi bi-pencil-fill"></i>
-    </button>
-    <button class="btn btn-danger" (click)="delete(Proyecto.id)">
-      <i class="bi bi-trash-fill"></i>
-    </button>
+    <div class="col-sm-11 col-md-6">
+      <h2>{{ Proyecto.nombreP }}</h2>
+      <p>{{ Proyecto.fechaP }}</p>
+      <p>{{ Proyecto.descripcionP }}</p>
+      <p>{{ Proyecto.linkP }}</p>
+    </div>
+    <div class="col-1 col-md-1" *ngIf="isLogged">
+      <button
+        class="btn btn-light"
+        routerLink="/editproyecto/{{ Proyecto.id }}"
+      >
+        <i class="bi bi-pencil-fill"></i>
+      </button>
+      <button class="btn btn-danger" (click)="delete(Proyecto.id)">
+        <i class="bi bi-trash-fill"></i>
+      </button>
+    </div>
   </div>
 </div>

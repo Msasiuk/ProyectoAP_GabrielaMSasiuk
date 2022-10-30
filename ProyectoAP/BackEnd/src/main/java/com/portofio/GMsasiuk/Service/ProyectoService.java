@@ -4,9 +4,10 @@ import com.portofio.GMsasiuk.Entity.Proyecto;
 import com.portofio.GMsasiuk.Repository.IProyectoRepository;
 import java.util.List;
 import java.util.Optional;
-import javax.transaction.Transactional;
+//import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
@@ -14,7 +15,7 @@ public class ProyectoService {
     
     @Autowired IProyectoRepository iProyectoRepository;
     
-    //Mét. para traer listado de proyectos de bd, buscar por Id/por nombre, guardar ed, borrar ed, validar por Id/por nombre
+    //Mét. para traer listado de proyectos, obtener uno por ID/por nombre, guardar, borrar, validar si existe por ID/por nombre
     public List<Proyecto> list() {
         return iProyectoRepository.findAll();
     }
@@ -23,8 +24,8 @@ public class ProyectoService {
         return iProyectoRepository.findById(id);
     }
 
-    public Optional<Proyecto> getByNombreE(String nombreP) {
-        return iProyectoRepository.findByNombreP(nombreP);
+    public Optional<Proyecto> getByNombre(String nombre) {
+        return iProyectoRepository.findByNombreP(nombre);
     }
 
     public void save(Proyecto proyecto) {
@@ -39,7 +40,7 @@ public class ProyectoService {
         return iProyectoRepository.existsById(id);
     }
 
-    public boolean existsByNombreP(String nombreP) {
-        return iProyectoRepository.existsByNombreP(nombreP);
+    public boolean existsByNombre(String nombre) {
+        return iProyectoRepository.existsByNombreP(nombre);
     }
 }

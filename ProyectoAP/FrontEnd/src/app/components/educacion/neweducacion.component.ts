@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Educacion } from 'src/app/model/educacion';
 import { EducacionService } from 'src/app/service/educacion.service';
+import { ImageService } from 'src/app/service/image.service';
 
 @Component({
   selector: 'app-neweducacion',
@@ -9,22 +10,35 @@ import { EducacionService } from 'src/app/service/educacion.service';
   styleUrls: ['./neweducacion.component.css'],
 })
 export class NeweducacionComponent implements OnInit {
-  nombreE: string;
-  descripcionE: string;
+  institucionEd: string;
+  tituloEd: string;
+  imgInstitucionEd: string;
+  fechaInicioEd: number;
+  fechaFinEd: number;
 
-  constructor(private educacionS: EducacionService, private router: Router) {}
+  constructor(
+    private educacionService: EducacionService,
+    private router: Router,
+    public imageService: ImageService
+  ) {}
 
   ngOnInit(): void {}
 
   onCreate(): void {
-    const educacion = new Educacion(this.nombreE, this.descripcionE);
-    this.educacionS.save(educacion).subscribe(
+    const edu = new Educacion(
+      this.institucionEd,
+      this.tituloEd,
+      this.imgInstitucionEd,
+      this.fechaInicioEd,
+      this.fechaFinEd
+    );
+    this.educacionService.save(edu).subscribe(
       (data) => {
-        alert('Educación añadida correctamente');
+        alert('Educación añadida');
         this.router.navigate(['']);
       },
       (err) => {
-        alert('No se pudo añadir la educación');
+        alert('Falló');
         this.router.navigate(['']);
       }
     );

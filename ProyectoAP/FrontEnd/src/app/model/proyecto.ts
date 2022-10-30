@@ -2,24 +2,21 @@ export class Proyecto {
   id?: number;
   nombreP: string;
   descripcionP: string;
-  linkP: string;
   imgP: string;
-  fechaInicioP: number;
-  fechaFinP: number;
+  linkP: string;
+  fechaP: number;
 
   constructor(
     nombreP: string,
     descripcionP: string,
-    linkP: string,
     imgP: string,
-    fechaInicioP: number,
-    fechaFinP: number
+    linkP: string,
+    fechaP: number
   ) {
     this.nombreP = nombreP;
     this.descripcionP = descripcionP;
-    this.linkP = linkP;
     this.imgP = imgP;
-    this.fechaInicioP = fechaInicioP;
-    this.fechaFinP = fechaFinP;
+    this.linkP = linkP;
+    this.fechaP = fechaP;
   }
 }

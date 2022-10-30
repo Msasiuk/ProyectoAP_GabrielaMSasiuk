@@ -20,21 +20,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/explab")
-//@CrossOrigin(origins = "http://localhost:4200")
-//@CrossOrigin(origins = "https://frontpruebamsasiuk.web.app")
+@RequestMapping("/experiencia")
 @CrossOrigin(origins = {"https://frontpruebamsasiuk.web.app", "http://localhost:4200"})
 public class ExperienciaController {
-
+    //Clase que permite crear, buscar, editar, borrar los datos de experiencia del portfolio
+    
     @Autowired
     ExperienciaService experienciaService;
 
-    @GetMapping("/lista")
+    //Mét. para traer lista de ex.
+    @GetMapping("/list")
     public ResponseEntity<List<Experiencia>> list() {
         List<Experiencia> list = experienciaService.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
+    //Mét. para traer ex. según ID
     @GetMapping("/detail/{id}")
     public ResponseEntity<Experiencia> getById(@PathVariable("id") int id) {
         if (!experienciaService.existsById(id)) {
@@ -44,7 +45,7 @@ public class ExperienciaController {
         return new ResponseEntity(experiencia, HttpStatus.OK);
     }
 
-    //Mét. para eliminar experiencias según ID
+    //Mét. para eliminar ex. según ID
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!experienciaService.existsById(id)) {
@@ -54,48 +55,76 @@ public class ExperienciaController {
         return new ResponseEntity(new Mensaje("Experiencia eliminada correctamente"), HttpStatus.OK);
     }
 
-    //Mét. para crear experiencias previas validaciones
+    //Mét. para crear ex. previas validaciones
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody ExperienciaDto experienciaDto) {
-        if (StringUtils.isBlank(experienciaDto.getNombreE())) {
-            return new ResponseEntity(new Mensaje("El nombre de la experiencia es obligatorio"), HttpStatus.BAD_REQUEST);
+        if (StringUtils.isBlank(experienciaDto.getEmpresaEx())) {
+            return new ResponseEntity(new Mensaje("El nombre de la empresa es obligatorio"), HttpStatus.BAD_REQUEST);
         }
-        if (experienciaService.existsByNombreE(experienciaDto.getNombreE())) {
-            return new ResponseEntity(new Mensaje("El nombre de la experiencia ya existe"), HttpStatus.BAD_REQUEST);
+        if (experienciaService.existsByEmpresa(experienciaDto.getEmpresaEx())) {
+            return new ResponseEntity(new Mensaje("El nombre de la empresa ya existe"), HttpStatus.BAD_REQUEST);
         }
-        if (StringUtils.isBlank(experienciaDto.getDescripcionE())) {
+        if (StringUtils.isBlank(experienciaDto.getDescripcionEx())) {
             return new ResponseEntity(new Mensaje("La descripción de la experiencia es obligatorio"), HttpStatus.BAD_REQUEST);
         }
+        if (StringUtils.isBlank(experienciaDto.getTituloEx())) {
+            return new ResponseEntity(new Mensaje("El título de la experiencia es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
+        if (StringUtils.isBlank(Integer.toString(experienciaDto.getFechaInicioEx()))) {
+            return new ResponseEntity(new Mensaje("La fecha de inicio de la experiencia es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
 
-
-        Experiencia experiencia = new Experiencia(experienciaDto.getNombreE(), experienciaDto.getDescripcionE());
+        //public Experiencia(String empresaEx, String tituloEx, String descripcionEx,
+        //String imgEmpresaEx, int fechaInicioEx, int fechaFinEx)
+        Experiencia experiencia = new Experiencia(
+                experienciaDto.getEmpresaEx(),
+                experienciaDto.getTituloEx(),
+                experienciaDto.getDescripcionEx(),
+                experienciaDto.getImgEmpresaEx(),            
+                experienciaDto.getFechaInicioEx(),
+                experienciaDto.getFechaFinEx()
+        );
         experienciaService.save(experiencia);
 
         return new ResponseEntity(new Mensaje("Experiencia agregada correctamente"), HttpStatus.OK);
     }
-    
-    //Mét. que actualiza la experiencia según ID previas validaciones
+
+    //Mét. que actualiza ed. según ID previas validaciones
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody ExperienciaDto experienciaDto) {
         if (!experienciaService.existsById(id)) {
             return new ResponseEntity(new Mensaje("El ID indicado de la experiencia no existe"), HttpStatus.BAD_REQUEST);
         }
-        if (experienciaService.existsByNombreE(experienciaDto.getNombreE()) && experienciaService.getByNombreE(experienciaDto.getNombreE()).get().getId() != id) {
-            return new ResponseEntity(new Mensaje("El nombre de la experiencia ya existe"), HttpStatus.BAD_REQUEST);
+        if (experienciaService.existsByEmpresa(experienciaDto.getEmpresaEx())
+                && experienciaService.getByNombre(experienciaDto.getEmpresaEx()).get().getId() != id) {
+            return new ResponseEntity(new Mensaje("El nombre de la empresa ya existe"), HttpStatus.BAD_REQUEST);
         }
-        if (StringUtils.isBlank(experienciaDto.getNombreE())) {
-            return new ResponseEntity(new Mensaje("El nombre de la experiencia no puede estar vacío"), HttpStatus.BAD_REQUEST);
+        if (StringUtils.isBlank(experienciaDto.getEmpresaEx())) {
+            return new ResponseEntity(new Mensaje("El nombre de la experiencia es obligatorio"), HttpStatus.BAD_REQUEST);
         }
-             if (StringUtils.isBlank(experienciaDto.getDescripcionE())) {
-            return new ResponseEntity(new Mensaje("La descripción de la experiencia no puede estar vacío"), HttpStatus.BAD_REQUEST);
+        if (StringUtils.isBlank(experienciaDto.getTituloEx())) {
+            return new ResponseEntity(new Mensaje("El título de la experiencia es obligatorio"), HttpStatus.BAD_REQUEST);
         }
-        
+        if (StringUtils.isBlank(experienciaDto.getDescripcionEx())) {
+            return new ResponseEntity(new Mensaje("La descripción de la experiencia es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
+        if (StringUtils.isBlank(Integer.toString(experienciaDto.getFechaInicioEx()))) {
+            return new ResponseEntity(new Mensaje("La fecha de inicio de la experiencia es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
+
+        //public Experiencia(String empresaEx, String tituloEx, String descripcionEx,
+        //String imgEmpresaEx, int fechaInicioEx, int fechaFinEx)
         Experiencia experiencia = experienciaService.getOne(id).get();
-        experiencia.setNombreE(experienciaDto.getNombreE());
-        experiencia.setDescripcionE((experienciaDto.getDescripcionE()));
+
+        experiencia.setEmpresaEx(experienciaDto.getEmpresaEx());
+        experiencia.setTituloEx(experienciaDto.getTituloEx());
+        experiencia.setDescripcionEx(experienciaDto.getDescripcionEx());
+        experiencia.setImgEmpresaEx(experienciaDto.getImgEmpresaEx());
+        experiencia.setFechaInicioEx(experienciaDto.getFechaInicioEx());
+        experiencia.setFechaFinEx(experienciaDto.getFechaFinEx());
 
         experienciaService.save(experiencia);
-        return new ResponseEntity(new Mensaje("Experiencia actualizada"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Experiencia actualizada correctamente"), HttpStatus.OK);
 
     }
 }

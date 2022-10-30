@@ -8,15 +8,13 @@ import { Educacion } from '../model/educacion';
   providedIn: 'root',
 })
 export class EducacionService {
-  // URL = 'http://localhost:8080/educacion/';
-  // URL = 'https://prueba-msasiuk.herokuapp.com/educacion/';
   URL = environment.URL + 'educacion/';
 
   constructor(private httpClient: HttpClient) {}
 
   //Mét. propios de la clase para traer lista, traer, guardar, actualizar y borrar educación.
   public lista(): Observable<Educacion[]> {
-    return this.httpClient.get<Educacion[]>(this.URL + 'lista');
+    return this.httpClient.get<Educacion[]>(this.URL + 'list');
   }
 
   public detail(id: number): Observable<Educacion> {

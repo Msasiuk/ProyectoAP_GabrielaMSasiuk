@@ -2,42 +2,36 @@ package com.portofio.GMsasiuk.Dto;
 
 import javax.validation.constraints.NotBlank;
 
-
 public class ProyectoDto {
-    
+
+    //public Proyecto(String nombreP, String descripcionP, String imgP, String linkP, int fechaP)
     @NotBlank
     private String nombreP;
 
     @NotBlank
     private String descripcionP;
-    
+
+    private String imgP;
+
     @NotBlank
     private String linkP;
-    
+
     @NotBlank
-    private String imgP;
-    
-    @NotBlank
-    private int fechaInicioP;
-    
-    @NotBlank
-    private int fechaFinP;
-    
+    private int fechaP;
+
     //Mét. constructor
     public ProyectoDto() {
     }
 
-    public ProyectoDto(String nombreP, String descripcionP, String linkP, String imgP, int fechaInicioP, int fechaFinP) {
+    public ProyectoDto(String nombreP, String descripcionP, String imgP, String linkP, int fechaP) {
         this.nombreP = nombreP;
         this.descripcionP = descripcionP;
-        this.linkP = linkP;
         this.imgP = imgP;
-        this.fechaInicioP = fechaInicioP;
-        this.fechaFinP = fechaFinP;
+        this.linkP = linkP;
+        this.fechaP = fechaP;
     }
-    
-    //Mét. getters y setters
 
+    //Mét. getters y setters
     public String getNombreP() {
         return nombreP;
     }
@@ -54,14 +48,6 @@ public class ProyectoDto {
         this.descripcionP = descripcionP;
     }
 
-    public String getLinkP() {
-        return linkP;
-    }
-
-    public void setLinkP(String linkP) {
-        this.linkP = linkP;
-    }
-
     public String getImgP() {
         return imgP;
     }
@@ -70,20 +56,20 @@ public class ProyectoDto {
         this.imgP = imgP;
     }
 
-    public int getFechaInicioP() {
-        return fechaInicioP;
+    public String getLinkP() {
+        return linkP;
     }
 
-    public void setFechaInicioP(int fechaInicioP) {
-        this.fechaInicioP = fechaInicioP;
+    public void setLinkP(String linkP) {
+        this.linkP = linkP;
     }
 
-    public int getFechaFinP() {
-        return fechaFinP;
+    public int getFechaP() {
+        return fechaP;
     }
 
-    public void setFechaFinP(int fechaFinP) {
-        this.fechaFinP = fechaFinP;
+    public void setFechaP(int fechaP) {
+        this.fechaP = fechaP;
     }
-   
+
 }

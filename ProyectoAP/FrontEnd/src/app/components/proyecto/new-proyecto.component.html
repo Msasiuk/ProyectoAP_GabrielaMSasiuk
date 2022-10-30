@@ -13,9 +13,8 @@
             required
           />
         </div>
-
         <div class="form-group">
-          <label for="descripcionP">Descripción del proyecto</label>
+          <label for="descripcionP">Descripcion del proyecto</label>
           <input
             type="text"
             class="form-control"
@@ -37,43 +36,17 @@
           />
         </div>
         <div class="form-group">
-          <label for="fechaInicioP">Fecha de Inicio</label>
+          <label for="fechaP">Fecha del proyecto</label>
           <input
             type="number"
             class="form-control"
-            id="fechaInicioP"
-            name="fechaInicioP"
-            [(ngModel)]="fechaInicioP"
+            id="fechaP"
+            name="fechaP"
+            [(ngModel)]="fechaP"
             required
           />
         </div>
-        <div class="form-group">
-          <label for="fechaFinP">Fecha de Finalizacion</label>
-          <input
-            type="number"
-            class="form-control"
-            id="fechaFinP"
-            name="fechaFinP"
-            [(ngModel)]="fechaFinP"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="imgP">Foto</label>
-          <input
-            type="file"
-            class="form-control"
-            id="imgP"
-            name="imgP"
-            (change)="uploadImage($event)"
-            accept=".jpg, .jpeg, .png"
-          />
-        </div>
-        <div class="imagen">
-          <img [src]="imageService.url" alt="" width="200px" />
-        </div>
-        <br />
-        <button class="btn btn-dark">Update</button>
+        <button class="btn btn-primary">Agregar experiencia</button>
       </form>
     </div>
   </div>

@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Skill } from 'src/app/model/skill';
-import { SkillService } from 'src/app/service/skill.service';
+import { SoftSkill } from 'src/app/model/soft-skill';
+import { SoftSkillService } from 'src/app/service/soft-skill.service';
 
 @Component({
-  selector: 'app-edit-skill',
-  templateUrl: './edit-skill.component.html',
-  styleUrls: ['./edit-skill.component.css'],
+  selector: 'app-edit-soft-skill',
+  templateUrl: './edit-soft-skill.component.html',
+  styleUrls: ['./edit-soft-skill.component.css'],
 })
-export class EditSkillComponent implements OnInit {
-  skill: Skill = null;
+export class EditSoftSkillComponent implements OnInit {
+  softSkill: SoftSkill = null;
 
   constructor(
-    private skillS: SkillService,
+    private softSkillService: SoftSkillService,
     private activatedRouter: ActivatedRoute,
     private router: Router
   ) {}
 
   ngOnInit(): void {
     const id = this.activatedRouter.snapshot.params['id'];
-    this.skillS.detail(id).subscribe(
+    this.softSkillService.detail(id).subscribe(
       (data) => {
-        this.skill = data;
+        this.softSkill = data;
       },
       (err) => {
         alert('No se pudo modificar la skill');
@@ -32,7 +32,7 @@ export class EditSkillComponent implements OnInit {
 
   onUpdate() {
     const id = this.activatedRouter.snapshot.params['id'];
-    this.skillS.update(id, this.skill).subscribe(
+    this.softSkillService.update(id, this.softSkill).subscribe(
       (data) => {
         this.router.navigate(['']);
       },
