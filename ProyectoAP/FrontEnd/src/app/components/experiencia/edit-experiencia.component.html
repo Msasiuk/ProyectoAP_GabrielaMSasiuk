@@ -1,80 +1,80 @@
-<div class="container" *ngIf="expLab">
-  <div class="row">
-    <div>
-      <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
-        <div class="form-group">
-          <label for="nombreEx">Nombre de la empresa</label>
-          <input
-            type="text"
-            class="form-control"
-            id="nombreEx"
-            name="nombreEx"
-            [(ngModel)]="expLab.empresaEx"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="tituloEx">Puesto de trabajo</label>
-          <input
-            type="text"
-            class="form-control"
-            id="tituloEx"
-            name="tituloEx"
-            [(ngModel)]="expLab.tituloEx"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="descripcionE">Descripción del trabajo realizado</label>
-          <input
-            type="text"
-            class="form-control"
-            id="descripcionE"
-            name="descripcionE"
-            [(ngModel)]="expLab.descripcionEx"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="fechaInicioEx">Fecha de Inicio</label>
-          <input
-            type="number"
-            class="form-control"
-            id="fechaInicioEx"
-            name="fechaInicioEx"
-            [(ngModel)]="expLab.fechaInicioEx"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="fechaFinP">Fecha de Fin</label>
-          <input
-            type="number"
-            class="form-control"
-            id="fechaFinP"
-            name="fechaFinP"
-            [(ngModel)]="expLab.fechaFinEx"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="imgEx">Foto</label>
-          <input
-            type="file"
-            class="form-control"
-            id="imgEx"
-            name="imgEx"
-            (change)="uploadImage($event)"
-            accept=".jpg, .jpeg, .png"
-          />
-        </div>
-        <p>Por favor espere hasta que termine de cargar la imagen</p>
-        <div class="imagen">
-          <img [src]="imageService.url" alt="" width="200px" />
-        </div>
-        <br />
-        <button class="btn btn-dark">Update</button>
-      </form>
-    </div>
+<div class="gradient-custom" *ngIf="expLab">
+  <div class="container">
+    <h2 class="fw-bold mb-2">- EDITAR -</h2>
+    <p>Para finalizar haga click sobre el botón</p>
+    <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+      <div class="form-group">
+        <label for="nombreEx">Nombre de la empresa</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombreEx"
+          name="nombreEx"
+          [(ngModel)]="expLab.empresaEx"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="tituloEx">Puesto de trabajo</label>
+        <input
+          type="text"
+          class="form-control"
+          id="tituloEx"
+          name="tituloEx"
+          [(ngModel)]="expLab.tituloEx"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="descripcionE">Descripción del trabajo realizado</label>
+        <input
+          type="text"
+          class="form-control"
+          id="descripcionE"
+          name="descripcionE"
+          [(ngModel)]="expLab.descripcionEx"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="fechaInicioEx">Fecha de Inicio</label>
+        <input
+          type="number"
+          class="form-control"
+          id="fechaInicioEx"
+          name="fechaInicioEx"
+          [(ngModel)]="expLab.fechaInicioEx"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="fechaFinP">Fecha de Fin</label>
+        <input
+          type="number"
+          class="form-control"
+          id="fechaFinP"
+          name="fechaFinP"
+          [(ngModel)]="expLab.fechaFinEx"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="imgEx">Foto</label>
+        <input
+          type="file"
+          class="form-control"
+          id="imgEx"
+          name="imgEx"
+          (change)="uploadImage($event)"
+          accept=".jpg, .jpeg, .png"
+        />
+      </div>
+      <p>Por favor espere hasta que termine de cargar la imagen</p>
+      <div class="imagen">
+        <img [src]="imageService.url" alt="" width="200px" />
+      </div>
+      <br />
+      <button class="btn btn-dark">Editar</button>
+    </form>
   </div>
 </div>

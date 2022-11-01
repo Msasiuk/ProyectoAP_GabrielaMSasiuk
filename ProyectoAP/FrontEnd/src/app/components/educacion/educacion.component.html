@@ -1,9 +1,9 @@
 <div class="row">
-  <h1>Educacion</h1>
-  <div class="col-lg-2">
+  <div class="h2">
+    <h2>Educacion</h2>
     <button
       type="button"
-      class="btn btn-dark"
+      class="btn btn-dark col"
       routerLink="/nuevaedu"
       *ngIf="isLogged"
     >
@@ -11,8 +11,8 @@
     </button>
   </div>
 
-  <div class="row" *ngFor="let Educacion of educacion">
-    <div class="col-xm-3 col-md-2" *ngIf="Educacion">
+  <div class="grid" *ngFor="let Educacion of educacion">
+    <div *ngIf="Educacion">
       <img
         id="imagen"
         src="{{ Educacion.imgInstitucionEd }}"
@@ -20,14 +20,12 @@
         max-width="100px"
       />
     </div>
-    <div class="col-xm-9 col-md-4">
-      <h2>{{ Educacion.institucionEd }}</h2>
-    </div>
-    <div class="col-xm-10 col-md-5">
+    <div>
+      <h3>{{ Educacion.institucionEd }}</h3>
       <p>{{ Educacion.tituloEd }}</p>
       <p>{{ Educacion.fechaInicioEd }} - {{ Educacion.fechaFinEd }}</p>
     </div>
-    <div class="col-2 col-md-1" *ngIf="isLogged">
+    <div *ngIf="isLogged">
       <button class="btn btn-light" routerLink="/editedu/{{ Educacion.id }}">
         <i class="bi bi-pencil-fill"></i>
       </button>

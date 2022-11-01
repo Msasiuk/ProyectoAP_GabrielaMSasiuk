@@ -1,31 +1,31 @@
-<div class="container" *ngIf="softSkill">
-  <div class="row">
-    <div>
-      <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
-        <div class="form-group">
-          <label for="nombreSf">Nombre de la Skill</label>
-          <input
-            type="text"
-            class="form-control"
-            id="nombreSf"
-            name="nombreSf"
-            [(ngModel)]="softSkill.nombreSf"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="porcentajeSf">Porcentaje de la Skill</label>
-          <input
-            type="number"
-            class="form-control"
-            id="porcentajeSf"
-            name="porcentajeSf"
-            [(ngModel)]="softSkill.porcentajeSf"
-            required
-          />
-        </div>
-        <button class="btn btn-dark">Update</button>
-      </form>
-    </div>
+<div class="gradient-custom" *ngIf="softSkill">
+  <div class="container">
+    <h2 class="fw-bold mb-2">- EDITAR -</h2>
+    <p>Para finalizar haga click sobre el botón</p>
+    <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+      <div class="form-group">
+        <label for="nombreSf">Nombre de la Skill</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombreSf"
+          name="nombreSf"
+          [(ngModel)]="softSkill.nombreSf"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="porcentajeSf">Porcentaje de la Skill</label>
+        <input
+          type="number"
+          class="form-control"
+          id="porcentajeSf"
+          name="porcentajeSf"
+          [(ngModel)]="softSkill.porcentajeSf"
+          required
+        />
+      </div>
+      <button class="btn btn-dark">Editar</button>
+    </form>
   </div>
 </div>

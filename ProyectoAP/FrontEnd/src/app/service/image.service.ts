@@ -7,7 +7,6 @@ import {
   getDownloadURL,
   StorageReference,
 } from '@angular/fire/storage';
-import { NgModel } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',

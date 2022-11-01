@@ -1,31 +1,31 @@
-<div class="container" *ngIf="hardSkill">
-  <div class="row">
-    <div>
-      <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
-        <div class="form-group">
-          <label for="nombreHd">Nombre de la Skill</label>
-          <input
-            type="text"
-            class="form-control"
-            id="nombreHd"
-            name="nombreHd"
-            [(ngModel)]="hardSkill.nombreHd"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="porcentajeHd">Porcentaje de la Skill</label>
-          <input
-            type="number"
-            class="form-control"
-            id="porcentajeHd"
-            name="porcentajeHd"
-            [(ngModel)]="hardSkill.porcentajeHd"
-            required
-          />
-        </div>
-        <button class="btn btn-dark">Update</button>
-      </form>
-    </div>
+<div class="gradient-custom" *ngIf="hardSkill">
+  <div class="container">
+    <h2 class="fw-bold mb-2">- EDITAR -</h2>
+    <p>Para finalizar haga click sobre el botón</p>
+    <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+      <div class="form-group">
+        <label for="nombreHd">Nombre de la Skill</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombreHd"
+          name="nombreHd"
+          [(ngModel)]="hardSkill.nombreHd"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="porcentajeHd">Porcentaje de la Skill</label>
+        <input
+          type="number"
+          class="form-control"
+          id="porcentajeHd"
+          name="porcentajeHd"
+          [(ngModel)]="hardSkill.porcentajeHd"
+          required
+        />
+      </div>
+      <button class="btn btn-dark">Editar</button>
+    </form>
   </div>
 </div>

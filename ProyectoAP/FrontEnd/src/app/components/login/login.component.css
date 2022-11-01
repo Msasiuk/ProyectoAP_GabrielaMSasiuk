@@ -1,10 +1,59 @@
 .gradient-custom {
-    /* fallback for old browsers */
-    background: #6a11cb;
+    background: rgb(255, 127, 80);
+    background: linear-gradient(180deg, rgba(255, 127, 80, 1) 0%, rgba(230, 165, 119, 1) 50%, rgba(255, 255, 255, 1) 100%);
+}
 
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+.container {
+    padding-top: 65px;
+    border-radius: 1rem;
+    max-width: 60%;
+}
 
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+@media (max-width: 720px) {
+    .container {
+        padding-top: 25px;
+        border-radius: 1rem;
+        max-width: 100%;
+    }
+
+}
+
+@media (max-width: 1120px) {
+    .container {
+        padding-top: 25px;
+        border-radius: 1rem;
+        max-width: 80%;
+    }
+
+}
+
+.form-group,
+p {
+    padding: 5px;
+    font-weight: bold;
+}
+
+
+
+.btn {
+    transform: translate(0);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    background-color: #ffffff;
+    width: 8px;
+    top: 0;
+    bottom: 0;
+    left: -32px;
+    transform: rotate(-16 deg);
+    filter: blur(6px);
+}
+
+.btn:hover::before {
+    left: calc(100% + 32px);
+    transition: 0.75s;
 }

@@ -1,6 +1,7 @@
 <div class="row">
-  <h1>Experiencia laboral</h1>
-  <div class="col-lg-2">
+  <div class="h2">
+    <h2>Experiencia laboral</h2>
+
     <button
       type="button"
       class="btn btn-dark"
@@ -10,9 +11,8 @@
       <i class="bi bi-plus-square"></i>
     </button>
   </div>
-
-  <div class="row" *ngFor="let Experiencia of expe">
-    <div class="col-xm-3 col-md-2" *ngIf="Experiencia">
+  <div class="grid" *ngFor="let Experiencia of expe">
+    <div *ngIf="Experiencia">
       <img
         id="imagen"
         src="{{ Experiencia.imgEmpresaEx }}"
@@ -20,17 +20,13 @@
         max-width="100px"
       />
     </div>
-    <div class="col-xm-9 col-md-2">
-      <h2>{{ Experiencia.empresaEx }}</h2>
-    </div>
-    <div class="col-xm-5 col-md-3">
+    <div>
+      <h3>{{ Experiencia.empresaEx }}</h3>
       <p>{{ Experiencia.tituloEx }}</p>
       <p>{{ Experiencia.fechaInicioEx }} - {{ Experiencia.fechaFinEx }}</p>
-    </div>
-    <div class="col-xm-6 col-md-4">
       <p>{{ Experiencia.descripcionEx }}</p>
     </div>
-    <div class="col-1 col-md-1" *ngIf="isLogged">
+    <div *ngIf="isLogged">
       <button class="btn btn-light" routerLink="/editexp/{{ Experiencia.id }}">
         <i class="bi bi-pencil-fill"></i>
       </button>

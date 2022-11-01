@@ -9,15 +9,16 @@
     <p id="titulo">{{ persona.titulo }}</p>
   </div>
   <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 col-xl-9 div">
-    <h2>Acerca de mí</h2>
+    <h1>Acerca de mí</h1>
     <button
       type="button"
       class="btn btn-dark"
       routerLink="/editacercade/1"
       *ngIf="isLogged"
     >
-      Editar
+      <i class="bi bi-gear"></i>
     </button>
-    <p>{{ persona.descripcion }}</p>
+
+    <p class="descripcion">{{ persona.descripcion }}</p>
   </div>
 </div>
