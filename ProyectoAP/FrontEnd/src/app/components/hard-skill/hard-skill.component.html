@@ -12,21 +12,21 @@
 </div>
 
 <div class="grid">
-  <div *ngFor="let HardSkill of hardSkill">
+  <div *ngFor="let hardSkill of hardSkillList">
     <circle-progress
-      [percent]="HardSkill.porcentajeHd"
-      [title]="HardSkill.nombreHd"
+      [percent]="hardSkill.porcentajeHd"
+      [title]="hardSkill.nombreHd"
       [titleFontSize]="'30px'"
     >
     </circle-progress>
     <div class="divBtn" *ngIf="isLogged">
       <button
         class="btn btn-light"
-        routerLink="/edithdskill/{{ HardSkill.id }}"
+        routerLink="/edithdskill/{{ hardSkill.id }}"
       >
         <i class="bi bi-pencil-fill"></i>
       </button>
-      <button class="btn btn-danger" (click)="delete(HardSkill.id)">
+      <button class="btn btn-danger" (click)="delete(hardSkill.id)">
         <i class="bi bi-trash-fill"></i>
       </button>
     </div>

@@ -25,14 +25,14 @@ export class NeweducacionComponent implements OnInit {
   ngOnInit(): void {}
 
   onCreate(): void {
-    const edu = new Educacion(
+    const educacion = new Educacion(
       this.institucionEd,
       this.tituloEd,
       this.imgInstitucionEd,
       this.fechaInicioEd,
       this.fechaFinEd
     );
-    this.educacionService.save(edu).subscribe(
+    this.educacionService.save(educacion).subscribe(
       (data) => {
         alert('Educación añadida');
         this.router.navigate(['']);

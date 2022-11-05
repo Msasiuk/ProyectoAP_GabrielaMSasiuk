@@ -5,36 +5,38 @@
     <button
       type="button"
       class="btn btn-dark"
-      routerLink="/newproyecto"
+      routerLink="/newp"
       *ngIf="isLogged"
     >
       <i class="bi bi-plus-square"></i>
     </button>
   </div>
 
-  <div class="grid" *ngFor="let Proyecto of proyecto">
-    <div *ngIf="Proyecto">
+  <div class="grid" *ngFor="let proyecto of proyectoList">
+    <div *ngIf="proyecto">
       <img
         id="imagen"
-        src="{{ Proyecto.imgP }}"
+        src="{{ proyecto.imgP }}"
         alt="Logo de institucion"
         max-width="100px"
       />
     </div>
-    <div>
-      <h3>{{ Proyecto.nombreP }}</h3>
-      <p>{{ Proyecto.fechaP }}</p>
-      <p>{{ Proyecto.descripcionP }}</p>
-      <p>{{ Proyecto.linkP }}</p>
-    </div>
-    <div *ngIf="isLogged">
-      <button
-        class="btn btn-light"
-        routerLink="/editproyecto/{{ Proyecto.id }}"
+    <div class="divTexto">
+      <h3>{{ proyecto.nombreP }}</h3>
+      <p>{{ proyecto.fechaP }}</p>
+      <p>{{ proyecto.descripcionP }}</p>
+      <a
+        href="{{ proyecto.linkP }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        >{{ proyecto.linkP }}</a
       >
+    </div>
+    <div *ngIf="isLogged" class="divTexto">
+      <button class="btn btn-light" routerLink="/editp/{{ proyecto.id }}">
         <i class="bi bi-pencil-fill"></i>
       </button>
-      <button class="btn btn-danger" (click)="delete(Proyecto.id)">
+      <button class="btn btn-danger" (click)="delete(proyecto.id)">
         <i class="bi bi-trash-fill"></i>
       </button>
     </div>

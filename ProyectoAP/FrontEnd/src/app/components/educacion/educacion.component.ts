@@ -9,10 +9,10 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: ['./educacion.component.css'],
 })
 export class EducacionComponent implements OnInit {
-  educacion: Educacion[] = [];
+  educacionList: Educacion[] = [];
 
   constructor(
-    private educacionS: EducacionService,
+    private educacionService: EducacionService,
     private tokenService: TokenService
   ) {}
   isLogged = false;
@@ -27,14 +27,14 @@ export class EducacionComponent implements OnInit {
   }
 
   cargarEducacion(): void {
-    this.educacionS.lista().subscribe((data) => {
-      this.educacion = data;
+    this.educacionService.lista().subscribe((data) => {
+      this.educacionList = data;
     });
   }
 
   delete(id?: number) {
     if (id != undefined) {
-      this.educacionS.delete(id).subscribe(
+      this.educacionService.delete(id).subscribe(
         (data) => {
           this.cargarEducacion();
         },

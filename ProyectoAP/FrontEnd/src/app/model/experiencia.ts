@@ -7,6 +7,7 @@ export class Experiencia {
   fechaInicioEx: number;
   fechaFinEx: number;
 
+  // String empresaEx, String tituloEx, String descripcionEx, String imgEmpresaEx, int fechaInicioEx, int fechaFinEx
   constructor(
     empresaEx: string,
     tituloEx: string,

@@ -13,7 +13,7 @@ export class EditeducacionComponent implements OnInit {
   educacion: Educacion = null;
 
   constructor(
-    private educacionS: EducacionService,
+    private educacionService: EducacionService,
     private activatedRouter: ActivatedRoute,
     private router: Router,
     public imageService: ImageService
@@ -21,7 +21,7 @@ export class EditeducacionComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.activatedRouter.snapshot.params['id'];
-    this.educacionS.detail(id).subscribe(
+    this.educacionService.detail(id).subscribe(
       (data) => {
         this.educacion = data;
       },
@@ -34,7 +34,8 @@ export class EditeducacionComponent implements OnInit {
 
   onUpdate(): void {
     const id = this.activatedRouter.snapshot.params['id'];
-    this.educacionS.update(id, this.educacion).subscribe(
+    this.educacion.imgInstitucionEd = this.imageService.url;
+    this.educacionService.update(id, this.educacion).subscribe(
       (data) => {
         this.router.navigate(['']);
       },

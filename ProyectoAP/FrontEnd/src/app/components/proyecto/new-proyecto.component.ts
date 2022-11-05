@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Proyecto } from 'src/app/model/proyecto';
 import { ImageService } from 'src/app/service/image.service';
 import { ProyectoService } from 'src/app/service/proyecto.service';
@@ -25,14 +25,14 @@ export class NewProyectoComponent implements OnInit {
   ngOnInit(): void {}
 
   onCreate(): void {
-    const proye = new Proyecto(
+    const proyecto = new Proyecto(
       this.nombreP,
       this.descripcionP,
       this.imgP,
       this.linkP,
       this.fechaP
     );
-    this.proyectoServie.save(proye).subscribe(
+    this.proyectoServie.save(proyecto).subscribe(
       (data) => {
         alert('Proyecto añadido');
         this.router.navigate(['']);

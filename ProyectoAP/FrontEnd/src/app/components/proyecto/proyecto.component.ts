@@ -9,10 +9,10 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: ['./proyecto.component.css'],
 })
 export class ProyectoComponent implements OnInit {
-  proyecto: Proyecto[] = [];
+  proyectoList: Proyecto[] = [];
 
   constructor(
-    private proyectoS: ProyectoService,
+    private proyectoService: ProyectoService,
     private tokenService: TokenService
   ) {}
   isLogged = false;
@@ -27,14 +27,14 @@ export class ProyectoComponent implements OnInit {
   }
 
   cargarProyecto(): void {
-    this.proyectoS.lista().subscribe((data) => {
-      this.proyecto = data;
+    this.proyectoService.lista().subscribe((data) => {
+      this.proyectoList = data;
     });
   }
 
   delete(id?: number) {
     if (id != undefined) {
-      this.proyectoS.delete(id).subscribe(
+      this.proyectoService.delete(id).subscribe(
         (data) => {
           this.cargarProyecto();
         },

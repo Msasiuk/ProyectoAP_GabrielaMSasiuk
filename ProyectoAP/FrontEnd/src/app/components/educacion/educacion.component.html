@@ -1,35 +1,35 @@
 <div class="row">
   <div class="h2">
-    <h2>Educacion</h2>
+    <h2>Educación</h2>
     <button
       type="button"
       class="btn btn-dark col"
-      routerLink="/nuevaedu"
+      routerLink="/newed"
       *ngIf="isLogged"
     >
       <i class="bi bi-plus-square"></i>
     </button>
   </div>
 
-  <div class="grid" *ngFor="let Educacion of educacion">
-    <div *ngIf="Educacion">
+  <div class="grid" *ngFor="let educacion of educacionList">
+    <div *ngIf="educacion" class="divImg">
       <img
         id="imagen"
-        src="{{ Educacion.imgInstitucionEd }}"
+        src="{{ educacion.imgInstitucionEd }}"
         alt="Logo de institucion"
         max-width="100px"
       />
     </div>
-    <div>
-      <h3>{{ Educacion.institucionEd }}</h3>
-      <p>{{ Educacion.tituloEd }}</p>
-      <p>{{ Educacion.fechaInicioEd }} - {{ Educacion.fechaFinEd }}</p>
+    <div class="divTexto">
+      <h3>{{ educacion.institucionEd }}</h3>
+      <p>{{ educacion.tituloEd }}</p>
+      <p>{{ educacion.fechaInicioEd }} - {{ educacion.fechaFinEd }}</p>
     </div>
-    <div *ngIf="isLogged">
-      <button class="btn btn-light" routerLink="/editedu/{{ Educacion.id }}">
+    <div *ngIf="isLogged" class="divTexto">
+      <button class="btn btn-light" routerLink="/edited/{{ educacion.id }}">
         <i class="bi bi-pencil-fill"></i>
       </button>
-      <button class="btn btn-danger" (click)="delete(Educacion.id)">
+      <button class="btn btn-danger" (click)="delete(educacion.id)">
         <i class="bi bi-trash-fill"></i>
       </button>
     </div>

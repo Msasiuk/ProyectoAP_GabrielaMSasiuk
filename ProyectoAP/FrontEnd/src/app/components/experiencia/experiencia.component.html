@@ -5,32 +5,32 @@
     <button
       type="button"
       class="btn btn-dark"
-      routerLink="/nuevaexp"
+      routerLink="/newex"
       *ngIf="isLogged"
     >
       <i class="bi bi-plus-square"></i>
     </button>
   </div>
-  <div class="grid" *ngFor="let Experiencia of expe">
-    <div *ngIf="Experiencia">
+  <div class="grid" *ngFor="let experiencia of experienciaList">
+    <div *ngIf="experiencia" class="divImg">
       <img
         id="imagen"
-        src="{{ Experiencia.imgEmpresaEx }}"
+        src="{{ experiencia.imgEmpresaEx }}"
         alt="Logo de empresa"
         max-width="100px"
       />
     </div>
-    <div>
-      <h3>{{ Experiencia.empresaEx }}</h3>
-      <p>{{ Experiencia.tituloEx }}</p>
-      <p>{{ Experiencia.fechaInicioEx }} - {{ Experiencia.fechaFinEx }}</p>
-      <p>{{ Experiencia.descripcionEx }}</p>
+    <div class="divTexto">
+      <h3>{{ experiencia.empresaEx }}</h3>
+      <p>{{ experiencia.tituloEx }}</p>
+      <p>{{ experiencia.fechaInicioEx }} - {{ experiencia.fechaFinEx }}</p>
+      <p>{{ experiencia.descripcionEx }}</p>
     </div>
-    <div *ngIf="isLogged">
-      <button class="btn btn-light" routerLink="/editexp/{{ Experiencia.id }}">
+    <div *ngIf="isLogged" class="divTexto">
+      <button class="btn btn-light" routerLink="/editex/{{ experiencia.id }}">
         <i class="bi bi-pencil-fill"></i>
       </button>
-      <button class="btn btn-danger" (click)="delete(Experiencia.id)">
+      <button class="btn btn-danger" (click)="delete(experiencia.id)">
         <i class="bi bi-trash-fill"></i>
       </button>
     </div>

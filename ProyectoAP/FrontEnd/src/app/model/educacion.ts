@@ -6,6 +6,7 @@ export class Educacion {
   fechaInicioEd: number;
   fechaFinEd: number;
 
+  // String institucionEd, String tituloEd, String imgInstitucionEd, int fechaInicioEd, int fechaFinEd
   constructor(
     institucionEd: string,
     tituloEd: string,

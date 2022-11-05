@@ -42,7 +42,7 @@ h2 {
 
 .grid {
     display: grid;
-    grid-template-columns: 2fr 3fr 1fr;
+    grid-template-columns: 2fr 4fr 1fr;
     gap: 1rem;
     text-align: center;
 }
@@ -56,4 +56,19 @@ h2 {
 
 h2 {
     display: inline;
+}
+
+.divImg {
+    display: flex;
+}
+
+img {
+    max-height: 90%;
+    max-width: 80%;
+    border-radius: 100%;
+    margin: auto;
+}
+
+.divTexto {
+    margin: auto;
 }

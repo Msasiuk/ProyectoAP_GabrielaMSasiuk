@@ -9,7 +9,7 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: ['./soft-skill.component.css'],
 })
 export class SoftSkillComponent implements OnInit {
-  softSkill: SoftSkill[] = [];
+  softSkillList: SoftSkill[] = [];
 
   constructor(
     private softSkillService: SoftSkillService,
@@ -28,7 +28,7 @@ export class SoftSkillComponent implements OnInit {
 
   cargarSkills(): void {
     this.softSkillService.lista().subscribe((data) => {
-      this.softSkill = data;
+      this.softSkillList = data;
     });
   }
 

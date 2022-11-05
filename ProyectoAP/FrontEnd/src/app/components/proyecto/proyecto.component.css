@@ -53,3 +53,13 @@ h2 {
         text-align: center;
     }
 }
+
+img {
+    max-width: 90%;
+    max-height: 400px;
+    box-shadow: 5px 5px 50px rgb(61, 61, 61);
+}
+
+.divTexto {
+    margin: auto;
+}

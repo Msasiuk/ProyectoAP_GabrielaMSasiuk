@@ -9,7 +9,7 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: ['./hard-skill.component.css'],
 })
 export class HardSkillComponent implements OnInit {
-  hardSkill: HardSkill[] = [];
+  hardSkillList: HardSkill[] = [];
 
   constructor(
     private hardSkillService: HardSkillService,
@@ -28,7 +28,7 @@ export class HardSkillComponent implements OnInit {
 
   cargarSkills(): void {
     this.hardSkillService.lista().subscribe((data) => {
-      this.hardSkill = data;
+      this.hardSkillList = data;
     });
   }
 

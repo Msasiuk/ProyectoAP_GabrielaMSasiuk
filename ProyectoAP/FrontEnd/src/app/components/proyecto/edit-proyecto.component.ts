@@ -13,7 +13,7 @@ export class EditProyectoComponent implements OnInit {
   proyecto: Proyecto = null;
 
   constructor(
-    private proyectoS: ProyectoService,
+    private proyectoService: ProyectoService,
     private activatedRouter: ActivatedRoute,
     private router: Router,
     public imageService: ImageService
@@ -21,7 +21,7 @@ export class EditProyectoComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.activatedRouter.snapshot.params['id'];
-    this.proyectoS.detail(id).subscribe(
+    this.proyectoService.detail(id).subscribe(
       (data) => {
         this.proyecto = data;
       },
@@ -35,7 +35,7 @@ export class EditProyectoComponent implements OnInit {
   onUpdate(): void {
     const id = this.activatedRouter.snapshot.params['id'];
     this.proyecto.imgP = this.imageService.url;
-    this.proyectoS.update(id, this.proyecto).subscribe(
+    this.proyectoService.update(id, this.proyecto).subscribe(
       (data) => {
         this.router.navigate(['']);
       },

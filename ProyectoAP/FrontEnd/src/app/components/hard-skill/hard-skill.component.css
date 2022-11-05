@@ -40,7 +40,6 @@ h2 {
     transition: 0.75s;
 }
 
-
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -70,4 +69,12 @@ h2 {
     .grid {
         display: block;
     }
+}
+
+.divBtn {
+    text-align: center;
+}
+
+button {
+    display: inline;
 }
