@@ -9,5 +9,6 @@ export const environment = {
     messagingSenderId: '350262655455',
   },
   production: true,
-  URL: 'https://prueba-msasiuk.herokuapp.com/',
+  // URL: 'https://prueba-msasiuk.herokuapp.com/',
+  URL: 'https://backend-msasiuk.koyeb.app/',
 };
